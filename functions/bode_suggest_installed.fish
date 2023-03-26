@@ -1,4 +1,8 @@
-function bode_suggest_installed
+# Takes:    $1 - The command to check
+#           $2 (optional) - The program to install
+# Returns:  0 if the command is installed, 1 if not
+# Example:  suggest_installed "git"
+function bode_suggest_installed --description "Checks if a command is installed and suggests to install it if it isn't."
     set program_cmd $argv[1]
     set program_name $argv[2]
 
