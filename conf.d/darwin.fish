@@ -9,6 +9,17 @@ end
 # Environment variables
 #
 
+# A directory for things like sockets, named pipes, etc.
+# From the XDG Base Directory Specification:
+# "It MUST be created when the user first logs in
+# and if the user fully logs out the directory MUST be removed."
+# TODO: Find out if there is something like this in Darwin
+set -Ux XDG_RUNTIME_DIR $HOME/.local/run
+if not test -d $XDG_RUNTIME_DIR
+    mkdir -p $XDG_RUNTIME_DIR
+    chmod 700 $XDG_RUNTIME_DIR
+end
+
 # Always use the latest version of swift
 set -Ux TOOLCHAINS swift
 
@@ -57,7 +68,7 @@ if status --is-interactive
     # Program initializations and configuration
     #
 
-    
+
 
     # Load ssh keys into the ssh-agent
     ssh-add --apple-load-keychain -q
