@@ -11,11 +11,10 @@ else
 end
 
 # Activate command-not-found handler for homebrew
-if not test -f (brew --repository)"/Library/Taps/homebrew/homebrew-command-not-found/handler.fish"
-    brew tap homebrew/command-not-found
-end
-
 set HB_CNF_HANDLER (brew --repository)"/Library/Taps/homebrew/homebrew-command-not-found/handler.fish"
 if test -f $HB_CNF_HANDLER
+    source $HB_CNF_HANDLER
+else
+    brew tap homebrew/command-not-found
     source $HB_CNF_HANDLER
 end
