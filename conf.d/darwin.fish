@@ -57,11 +57,7 @@ if status --is-interactive
     # Program initializations and configuration
     #
 
-    # Activate command-not-found handler
-    set HB_CNF_HANDLER (brew --repository)"/Library/Taps/homebrew/homebrew-command-not-found/handler.fish"
-    if test -f $HB_CNF_HANDLER
-        source $HB_CNF_HANDLER
-    end
+    
 
     # Load ssh keys into the ssh-agent
     ssh-add --apple-load-keychain -q
