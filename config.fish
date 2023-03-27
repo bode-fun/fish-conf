@@ -145,9 +145,5 @@ end
 #
 
 function bode_on_exit_common --on-event fish_exit
-    # TODO: Uncomment, but idk if I really should set the runtime dir
-    # Remove the XDG_RUNTIME_DIR when the user closes the shell
-    # if test -d $XDG_RUNTIME_DIR
-    #     rm -rf $XDG_RUNTIME_DIR/*
-    # end
+    
 end
