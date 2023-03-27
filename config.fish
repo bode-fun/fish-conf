@@ -41,6 +41,9 @@ set -Ux GPG_TTY (tty)
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 
+# Set the default pager to less
+set -Ux PAGER less
+
 # =============================================================================
 #
 # Program initialization
@@ -48,6 +51,9 @@ set -Ux VISUAL nvim
 
 # Deactivate the fish greeting message
 set fish_greeting
+
+# TODO: Setup bat
+# https://github.com/sharkdp/bat#integration-with-other-tools
 
 # =============================================================================
 #
@@ -141,7 +147,9 @@ if status is-interactive
     # Aliases
     #
 
-    alias ls "exa --icons --group-directories-first"
+    alias cd z
+
+    alias ls "exa -G --icons --group-directories-first"
     alias ll "ls -lgh --git"
     alias la "ll -a"
     alias lg "la --git-ignore"
