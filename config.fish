@@ -46,7 +46,8 @@ set -Ux VISUAL nvim
 # Program initialization
 #
 
-
+# Deactivate the fish greeting message
+set fish_greeting
 
 # =============================================================================
 #
