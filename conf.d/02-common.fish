@@ -158,6 +158,8 @@ if status is-interactive
     alias vi nvim
     alias vim nvim
 
+    alias brewup "brew update && brew upgrade"
+
     if test $TERM = xterm-kitty
         alias ssh "kitty +kitten ssh"
     end
