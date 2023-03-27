@@ -24,8 +24,7 @@ set -Ux TOOLCHAINS swift
 # Program initialization and configuration
 #
 
-# Load homebrew
-/opt/homebrew/bin/brew shellenv | source
+
 
 # =============================================================================
 #
