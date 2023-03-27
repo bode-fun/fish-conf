@@ -7,6 +7,7 @@ function wslenv --description "Get the value of an environment variable from the
         /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command "echo \$env:$cmd" | tr -d '\r'
         return $status
     else
+        echo "This function is only available on WSL." 1>&2
         return 1
     end
 end
