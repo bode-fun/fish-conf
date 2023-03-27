@@ -35,7 +35,9 @@ end
 # Path
 #
 
-
+set windows_home "(wslpath "(wslenv USERPROFILE)")"
+fish_add_path "$windows_home/AppData/Local/Programs/Microsoft VS Code/bin"
+fish_add_path "$windows_home/scoop/apps/rancher-desktop/current/resources/resources/linux/bin"
 
 # =============================================================================
 #
@@ -49,8 +51,6 @@ if status --is-interactive
     #
     # Program initializations and configuration
     #
-
-    # TODO Load ssh keys into the ssh-agent
 
 
     # =========================================================================
@@ -69,11 +69,14 @@ end
 
 # =============================================================================
 #
-# Login
+# Interactive Login
 #
 
 if status --is-login
-
+    # Load ssh keys into the ssh-agent
+    #eval (ssh-agent -c | sed 's/^echo/#echo/')
+    # TODO: Move to gnome-keyring https://wiki.archlinux.org/title/GNOME/Keyring#SSH_keys
+    eval (keychain --eval --agents ssh)
 end
 
 # =============================================================================
