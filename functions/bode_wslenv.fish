@@ -2,8 +2,9 @@
 # Returns:  1 if it doesn't exist or if not on WSL
 # Stdout:   The value of the environment variable
 function bode_wslenv --description "Get the value of an environment variable from the Windows environment."
-    if test (bode_os_discovery == "WSL")
-        /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command "echo \$env:$1" | tr -d '\r'
+    if test (bode_os_discovery) = WSL
+        set cmd $argv[1]
+        /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command "echo \$env:$cmd" | tr -d '\r'
         return $status
     else
         return 1
