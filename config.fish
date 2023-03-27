@@ -113,9 +113,14 @@ if status is-interactive
     # direnv hook fish | source
 
     # Force pip to use virtualenvs to prevent polluting the system
+    # These are all currently maintained python versions as well as python2
+    # https://endoflife.date/python
     # TODO: I just put this here. Find out if this breaks anything
+    # TODO: Create them dinamically and move this into a function
     alias pip "pip --require-virtualenv"
     alias pip3 "pip3 --require-virtualenv"
+    alias pip3.7 "pip3.7 --require-virtualenv"
+    alias pip3.8 "pip3.8 --require-virtualenv"
     alias pip3.9 "pip3.9 --require-virtualenv"
     alias pip3.10 "pip3.10 --require-virtualenv"
     alias pip3.11 "pip3.11 --require-virtualenv"
@@ -145,5 +150,5 @@ end
 #
 
 function bode_on_exit_common --on-event fish_exit
-    
+
 end
