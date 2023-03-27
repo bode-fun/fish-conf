@@ -81,8 +81,9 @@ set -Ux FZF_DEFAULT_OPTS " \
 # User specific executables according to the XDG Base Directory Specification
 fish_add_path $HOME/.local/bin
 
-# Folder for SDKs and golang updates
-fish_add_path $HOME/sdk
+# Folder for SDKs e.g. graalvm and golang versions
+# Clone SDKs into $HOME/sdk and symlink them into the bin folder
+fish_add_path $HOME/sdk/bin
 
 # Go executables
 fish_add_path $HOME/go/bin
