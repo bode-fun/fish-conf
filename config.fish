@@ -10,19 +10,29 @@
 # XDG Base Directory Specification
 # Only for convenience, because I don't know Darwin well enough
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set -Ux XDG_DATA_HOME $HOME/.local/share
-set -Ux XDG_CONFIG_HOME $HOME/.config
-set -Ux XDG_STATE_HOME $HOME/.local/state
-set -Ux XDG_CACHE_HOME $HOME/.cache
+set -q XDG_DATA_HOME || set -Ux XDG_DATA_HOME $HOME/.local/share
+set -q XDG_CONFIG_HOME || set -Ux XDG_CONFIG_HOME $HOME/.config
+set -q XDG_STATE_HOME || set -Ux XDG_STATE_HOME $HOME/.local/state
+set -q XDG_CACHE_HOME || set -Ux XDG_CACHE_HOME $HOME/.cache
+# This sould poperly not be set and is just here for completeness
+# set -q XDG_RUNTIME_DIR || set -Ux XDG_RUNTIME_DIR /run/user/(id -u)
 
-# Possible directories which are not specified by the XDG Base Directory Specification
-# set -Ux XDG_DESKTOP_DIR $HOME/Desktop
-# set -Ux XDG_DOCUMENTS_DIR $HOME/Documents
-# set -Ux XDG_DOWNLOAD_DIR $HOME/Downloads
-# set -Ux XDG_MUSIC_DIR $HOME/Music
-# set -Ux XDG_PICTURES_DIR $HOME/Pictures
-# set -Ux XDG_PROJECTS_DIR $HOME/Projects
-# set -Ux XDG_VIDEOS_DIR $HOME/Videos
+# Possible directories which are referenced by the xdg-user-dirs manpage
+# https://cgit.freedesktop.org/xdg/xdg-user-dirs/tree/man/xdg-user-dir.xml
+# https://wiki.archlinux.org/title/XDG_user_directories#Creating_custom_directories
+
+# set -q XDG_DESKTOP_DIR || set -Ux XDG_DESKTOP_DIR $HOME/Desktop
+# set -q XDG_DOCUMENTS_DIR || set -Ux XDG_DOCUMENTS_DIR $HOME/Documents
+# set -q XDG_DOWNLOAD_DIR || set -Ux XDG_DOWNLOAD_DIR $HOME/Downloads
+# set -q XDG_MUSIC_DIR || set -Ux XDG_MUSIC_DIR $HOME/Music
+# set -q XDG_PICTURES_DIR || set -Ux XDG_PICTURES_DIR $HOME/Pictures
+# set -q XDG_PUBLICSHARE_DIR || set -Ux XDG_PUBLICSHARE_DIR $HOME/Public
+# set -q XDG_TEMPLATES_DIR || set -Ux XDG_TEMPLATES_DIR $HOME/Templates
+# set -q XDG_VIDEOS_DIR || set -Ux XDG_VIDEOS_DIR $HOME/Videos
+
+# Not part of the xdg-users-dirs manpage
+# but I've seen it a few times
+# set -q XDG_PROJECTS_DIR || set -Ux XDG_PROJECTS_DIR $HOME/Projects
 
 # For git signing with gpg
 set -Ux GPG_TTY (tty)
