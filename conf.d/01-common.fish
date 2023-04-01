@@ -110,7 +110,7 @@ fish_add_path $HOME/.deno/bin
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    # These commands are run after the os-specific configuration
+    # These commands are run before the os-specific configuration
 
     # =========================================================================
     #
