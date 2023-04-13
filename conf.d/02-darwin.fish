@@ -54,6 +54,8 @@ fish_add_path $HOME/Library/Python/3.9/bin
 
 # Rancher Desktop, a Docker Desktop alternative
 fish_add_path $HOME/.rd/bin
+fish_add_path $HOME/.docker/bin
+
 
 # =============================================================================
 #
